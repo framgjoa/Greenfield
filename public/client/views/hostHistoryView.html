@@ -15,7 +15,7 @@
     <!-- Additional sessions appended-->
     <!--<tr><td colspan="5" ></td></tr> -->
     <tr ng-repeat="session in sessions | orderBy: '-startTime' ">
-      <td><a href = "#/api/"+ {{session.sessionId}} >{{session.sessionId}} </td>
+      <td><a ng-href = "#/hostAnalysisView/{{session.sessionId}}" ng-click="sessionAnalysis(session.sessionId)">{{session.sessionId}} </td>
       <td><mydate>{{ session.startTime | date:'yyyy-MM-dd HH:mm'}}</mydate></td>
       <!--Duration is in milliseconds (ms)
           Divided to represent minutes, one sig fig-->

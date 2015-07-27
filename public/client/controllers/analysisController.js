@@ -24,9 +24,9 @@ angular.module('tokki')
   };
 
   // Presents analysis for a specific session
-  $scope.sessionAnalysis = function(){
-    console.log("Session Analysis");
-    AnalysisServices.sessionAnalysis();
+  $scope.sessionAnalysis = function(selectedSession){
+    console.log("Session Analysis of ", selectedSession);
+    AnalysisServices.sessionAnalysis(selectedSession);
   };
 
   $scope.sessionHistory();

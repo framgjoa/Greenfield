@@ -28,12 +28,11 @@ angular.module('tokki')
   //Sends a request of a specific session from a host
   //Recieves detailed vote average vs time data
   //Expected from hostAnalysisView
-  var sessionAnalysis = function(cb){
+  var sessionAnalysis = function(sessionId, cb){
     return $http({
       method: 'GET',
-      //To-do: Research this
-      url: session.url + session.hostId + '/' + session.sessionId
-      // $location.path('/newValue').search({key: value});
+      url: '/hostAnalysisView/'
+      //+ sessionId
     })
     .then(function(resp){
       console.log("SessionAnalysis called");
