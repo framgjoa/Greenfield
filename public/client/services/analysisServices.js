@@ -2,12 +2,10 @@
 angular.module('tokki')
   .factory('AnalysisServices', function($http) {
 
-  // var sessions = {
-  //   sessionId:{
-  //     id: '',
-  //     url: '#/api/'
-  //   }
-  // };
+  var session = {
+      id: '',
+      url: '#/hostAnalysisView/'
+  };
 
   // Sends a request of all sessions from a host
   // Receives the session IDs, start times
@@ -29,6 +27,7 @@ angular.module('tokki')
   //Recieves detailed vote average vs time data
   //Expected from hostAnalysisView
   var sessionAnalysis = function(sessionId, cb){
+    sessionId.id = sessionId;
     return $http({
       method: 'GET',
       url: '/hostAnalysisView/'

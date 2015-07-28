@@ -39,9 +39,15 @@ angular.module('tokki')
     })
     //Routes to the host session analysis
     .state('hostAnalysisView', {
-      url: '/hostAnalysisView',
+      url: '/hostAnalysisView/:sessionId',
       templateUrl: './views/hostAnalysisView.html',
       controller: 'AnalysisController'
+      // ,resolve:{
+      // session: function($stateProvider, Auth) {
+      //   return Auth.querySessionDB($stateProvider.sessionId)
+      //   .then(function (data) {
+      //     return data;
+      //   });
     })
     //Routes to the host login view
     .state('hostLoginView', {
