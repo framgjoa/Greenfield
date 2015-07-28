@@ -30,13 +30,13 @@ angular.module('tokki')
     sessionId.id = sessionId;
     return $http({
       method: 'GET',
-      url: '/hostAnalysisView/'
-      //+ sessionId
+      url: 'host/old/:sessionId'
     })
     .then(function(resp){
       console.log("SessionAnalysis called");
-      //DBUtils.getSessionFromDb(sessionInfo, cb)
+      DBUtils.getSessionFromDb(sessionId, cb)
       session.data = resp.data;
+      console.log("SessionDate from Analysis: ", resp.data);
       cb(resp.data);
     });
   };

@@ -15,7 +15,7 @@ angular.module('tokki')
     });
   };
 
-  // Pulls data from DB for analysis
+  // Pulls sessions and summary data from DB for analysis based on user
   $scope.sessionHistory = function(){
     console.log("Accessing history...");
     AnalysisServices.sessionHistory(function(data) {
@@ -26,6 +26,7 @@ angular.module('tokki')
   // Presents analysis for a specific session
   $scope.sessionAnalysis = function(selectedSession){
     console.log("Session Analysis of ", selectedSession);
+    $scope.selectedSessionId = selectedSession;
     AnalysisServices.sessionAnalysis(selectedSession);
   };
 
