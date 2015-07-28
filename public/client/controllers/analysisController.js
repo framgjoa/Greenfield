@@ -8,7 +8,9 @@ angular.module('tokki')
   // to automatically select the host's sessions
   $scope.selectedSessionId = null;
   $scope.currHostId = null;
+  $scope.sessionData = null;
 
+  //Not being used currently
   $scope.init = function(currHostId) {
     AnalysisServices.sessionHistory( currHostId, function(sessionId, data) {
       console.log('Populated data from host: ' + currHostId);
@@ -23,11 +25,11 @@ angular.module('tokki')
     });
   };
 
-  // Presents analysis for a specific session
+  // Presents analysis for a specific session. Called on click
   $scope.sessionAnalysis = function(selectedSession){
-    console.log("Session Analysis of ", selectedSession);
     $scope.selectedSessionId = selectedSession;
-    AnalysisServices.sessionAnalysis(selectedSession);
+    $scope.sessionData = AnalysisServices.sessionAnalysis(selectedSession);
+    console.log("Session Data from ", $scope.selectedSessionId, " : ", $scope.sessionData);
   };
 
   $scope.sessionHistory();

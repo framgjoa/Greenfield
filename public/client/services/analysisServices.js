@@ -27,16 +27,16 @@ angular.module('tokki')
   //Recieves detailed vote average vs time data
   //Expected from hostAnalysisView
   var sessionAnalysis = function(sessionId, cb){
-    sessionId.id = sessionId;
+    session.id = sessionId;
     return $http({
       method: 'GET',
-      url: 'host/old/:sessionId'
+      url: 'host/old/'+ sessionId
     })
     .then(function(resp){
       console.log("SessionAnalysis called");
       DBUtils.getSessionFromDb(sessionId, cb)
       session.data = resp.data;
-      console.log("SessionDate from Analysis: ", resp.data);
+      console.log("SessionData from Analysis: ", resp.data);
       cb(resp.data);
     });
   };
